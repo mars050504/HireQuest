@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Navbar from './components/shared/Navbar'
-import Login from './components/auth/Login'
-import Signup from './components/auth/Signup'
+import Login from './components/auth/login'
+import Signup from './components/auth/signup'
 import Home from './components/Home'
 import Jobs from './components/Jobs'
 import Browse from './components/Browse'
@@ -14,6 +14,7 @@ import AdminJobs from "./components/admin/AdminJobs";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import AdminProfile from './components/admin/AdminProfile'
 
 
 const appRouter = createBrowserRouter([
@@ -34,7 +35,7 @@ const appRouter = createBrowserRouter([
     element: <Jobs />
   },
   {
-    path: "/description/:id",
+    path: "description/:id",
     element: <JobDescription />
   },
   {
@@ -45,32 +46,36 @@ const appRouter = createBrowserRouter([
     path: "/profile",
     element: <Profile />
   },
-  // admin 
+  //admin 
   {
     path:"/admin/companies",
-    element: <ProtectedRoute><Companies/></ProtectedRoute>
+    element:<ProtectedRoute><Companies/></ProtectedRoute>
   },
   {
     path:"/admin/companies/create",
-    element: <ProtectedRoute><CompanyCreate/></ProtectedRoute> 
+    element:<ProtectedRoute><CompanyCreate/></ProtectedRoute>
   },
   {
     path:"/admin/companies/:id",
-    element:<ProtectedRoute><CompanySetup/></ProtectedRoute> 
+    element:<ProtectedRoute><CompanySetup/></ProtectedRoute>
   },
   {
     path:"/admin/jobs",
-    element:<ProtectedRoute><AdminJobs/></ProtectedRoute> 
+    element:<ProtectedRoute><AdminJobs/></ProtectedRoute>
   },
   {
     path:"/admin/jobs/create",
-    element:<ProtectedRoute><PostJob/></ProtectedRoute> 
+    element:<ProtectedRoute><PostJob/></ProtectedRoute>
   },
   {
     path:"/admin/jobs/:id/applicants",
-    element:<ProtectedRoute><Applicants/></ProtectedRoute> 
+    element:<ProtectedRoute><Applicants/></ProtectedRoute>
   },
-
+  {
+    path: "/admin/Profile",
+    element: <AdminProfile />
+  },
+  
 ])
 function App() {
 
